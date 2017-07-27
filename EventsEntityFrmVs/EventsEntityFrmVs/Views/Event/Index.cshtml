@@ -1,0 +1,86 @@
+﻿@model IEnumerable<EventsEntityFrmVs.Models.EventModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 eventDiv">
+                @Html.DisplayFor(modelItem => item.Id)
+
+                @Html.DisplayFor(modelItem => item.Title)
+
+                @Html.DisplayFor(modelItem => item.Details)
+
+                @Html.DisplayFor(modelItem => item.Location)
+
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  })
+                    @Html.ActionLink("Details", "Details", new {  id=item.Id  })
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+                }
+               
+                <button class="btn btn-danger subscribeButton ">Subscribe</button>
+            </div>
+
+        }
+    </div>
+</div>*@
+
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateAndTime)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+                <button class="btn btn-danger subscribeButton ">Subscribe</button>
+            </td>
+           
+
+        </tr>
+
+    }
+
+</table>
